@@ -79,6 +79,12 @@ def get_dataset(dataset_name: str, transform: Callable, transform_train=None) ->
         testset = CUBirds(root, "eval", transform)
         trainset.num_classes = trainset.nb_classes()
         return {"train": trainset, "test": testset, "metric": "rank1"}
+    elif dataset_name == "onca":
+        from dataset import Onca
+        trainset = Onca(root, "train", transform_train)
+        testset = Onca(root, "eval", transform)
+        trainset.num_classes = trainset.nb_classes()
+        return {"train": trainset, "test": testset, "metric": "rank1"}
 
     elif dataset_name == "car":
         from dataset import Cars

@@ -1,9 +1,9 @@
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 \
 retrieval.py \
             --batch_size           64 \
-            --dataset              sop \
+            --dataset              onca \
             --debug                0 \
-            --epochs               64 \
+            --epochs               128 \
             --lr                   1e-05 \
             --lr_pfc_weight        10.0 \
             --input_size           224 \
@@ -19,7 +19,7 @@ retrieval.py \
             --optimizer            adamw \
             --output_dim           512 \
             --output               /tmp/tmp_for_training \
-            --resume               NULL \
+            --resume               weight/ \
             --sample_rate          1.0 \
             --seed                 1024 \
             --transform            origin_clip \
